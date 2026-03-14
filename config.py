@@ -22,13 +22,13 @@ DATASETS = {
         "sample_size_approx": 202,
         "stat_test": "ttest",
     },
-    "GSE54913": {
-        "geo_id": "GSE54913",
-        "platform": "GPL15314",
+    "GSE27383": {
+        "geo_id": "GSE27383",
+        "platform": "GPL570",
         "tissue": "PBMC",
-        "description": "PBMC gene expression in early-onset schizophrenia",
-        "sample_size_approx": 30,
-        "stat_test": "mannwhitney",
+        "description": "PBMC expression in acutely psychotic schizophrenia (Affymetrix)",
+        "sample_size_approx": 72,
+        "stat_test": "ttest",
     },
 }
 

@@ -43,8 +43,8 @@ def main():
         help="Comma-separated stage numbers to run (default: 1,2,3,4,5)",
     )
     parser.add_argument(
-        "--datasets", default="GSE38484,GSE54913",
-        help="Comma-separated GEO dataset IDs (default: GSE38484,GSE54913)",
+        "--datasets", default="GSE38484,GSE27383",
+        help="Comma-separated GEO dataset IDs (default: GSE38484,GSE27383)",
     )
     parser.add_argument(
         "--primary", default="GSE38484",

@@ -262,30 +262,52 @@ def detect_modules(
     for name, info in sorted(modules.items()):
         log.info(f"  {name}: {info['size']} genes")
 
-    # Plot dendrogram with module colors
+    # Plot dendrogram with module color bar
+    # Use truncated dendrogram to avoid recursion limit with 5000+ genes
+    import sys
+    old_limit = sys.getrecursionlimit()
+    sys.setrecursionlimit(max(old_limit, n_genes * 3))
+
     configure_plotting()
-    fig, ax = plt.subplots(figsize=(14, 6))
-    dendro = dendrogram(Z, no_labels=True, color_threshold=0, above_threshold_color="grey", ax=ax)
-    ax.set_title("Gene Dendrogram with Module Colors")
-    ax.set_xlabel("Genes")
-    ax.set_ylabel("1 - TOM")
+    fig, (ax, ax2) = plt.subplots(2, 1, figsize=(14, 7),
+                                   gridspec_kw={"height_ratios": [6, 0.3], "hspace": 0.02})
 
-    # Add color bar below dendrogram
-    gene_to_color = {}
-    for mod_name, mod_info in modules.items():
-        for g in mod_info["genes"]:
-            gene_to_color[g] = mod_info["color"]
+    try:
+        dendro = dendrogram(Z, no_labels=True, color_threshold=0,
+                            above_threshold_color="grey", ax=ax)
+        ax.set_title("Gene Dendrogram with Module Colors")
+        ax.set_ylabel("1 - TOM")
+        ax.set_xticks([])
 
-    leaves = dendro["leaves"]
-    colors_ordered = [gene_to_color.get(gene_list[i], "#cccccc") for i in leaves]
+        # Module color bar using dendrogram leaf order
+        gene_to_color = {}
+        for mod_name, mod_info in modules.items():
+            for g in mod_info["genes"]:
+                gene_to_color[g] = mod_info["color"]
 
-    ax2 = fig.add_axes([0.125, 0.02, 0.775, 0.03])
-    for i, c in enumerate(colors_ordered):
-        ax2.axvspan(i, i + 1, color=c)
-    ax2.set_xlim(0, len(colors_ordered))
-    ax2.set_yticks([])
-    ax2.set_xticks([])
+        leaves = dendro["leaves"]
+        colors_ordered = [gene_to_color.get(gene_list[i], "#cccccc") for i in leaves]
 
+        for i, c in enumerate(colors_ordered):
+            ax2.axvspan(i, i + 1, color=c)
+        ax2.set_xlim(0, len(colors_ordered))
+        ax2.set_yticks([])
+        ax2.set_xticks([])
+        ax2.set_xlabel("Genes")
+
+    except RecursionError:
+        log.warning("Dendrogram too deep for plotting - creating module summary instead")
+        ax.clear()
+        ax2.clear()
+        mod_names = sorted([m for m in modules if not m.startswith("M0")])
+        sizes = [modules[m]["size"] for m in mod_names]
+        colors_bar = [modules[m]["color"] for m in mod_names]
+        ax.bar(mod_names, sizes, color=colors_bar, alpha=0.8)
+        ax.set_ylabel("Number of Genes")
+        ax.set_title("Co-expression Module Sizes")
+        ax2.axis("off")
+
+    sys.setrecursionlimit(old_limit)
     savefig(fig, "module_dendrogram")
 
     return modules, Z
@@ -455,9 +477,12 @@ def identify_hub_genes(
     hub_df = pd.DataFrame(hub_rows)
 
     # Get top N per module
-    top_hubs = hub_df.groupby("module").apply(
-        lambda g: g.nlargest(top_n, "kME"), include_groups=False
-    ).reset_index(drop=True)
+    top_hubs = (
+        hub_df.sort_values("kME", ascending=False)
+        .groupby("module")
+        .head(top_n)
+        .reset_index(drop=True)
+    )
 
     log.info(f"Identified {len(top_hubs)} hub genes across {top_hubs['module'].nunique()} modules")
     return top_hubs

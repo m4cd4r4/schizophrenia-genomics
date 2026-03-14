@@ -169,6 +169,41 @@ def map_probes_to_genes(
             break
 
     if symbol_col is None:
+        # Try ENSEMBL_ID fallback: extract gene name from ACCESSION_STRING
+        # Format: "ref|ENSEMBL|...|gb|NM_001234|..." or use ENSEMBL_ID directly
+        if "ACCESSION_STRING" in annot.columns:
+            log.info("No gene symbol column - attempting to extract from ACCESSION_STRING")
+            id_col_fallback = "ID" if "ID" in annot.columns else annot.columns[0]
+
+            def _extract_gene_from_accession(acc_str):
+                """Extract RefSeq/GenBank accession from Agilent-style accession strings."""
+                if not isinstance(acc_str, str):
+                    return None
+                # Look for RefSeq accessions (NM_, NR_, XM_)
+                import re as _re
+                match = _re.search(r'(NM_\d+|NR_\d+|XM_\d+)', acc_str)
+                if match:
+                    return match.group(1)
+                # Look for GenBank accessions
+                match = _re.search(r'gb\|([A-Z]{2}_?\d+)', acc_str)
+                if match:
+                    return match.group(1)
+                return None
+
+            annot["_extracted_acc"] = annot["ACCESSION_STRING"].apply(_extract_gene_from_accession)
+            valid = annot[annot["_extracted_acc"].notna()]
+            if len(valid) > 1000:
+                log.info(f"Extracted {len(valid)} accessions from ACCESSION_STRING")
+                probe_to_gene = valid.set_index(id_col_fallback)["_extracted_acc"]
+                common_probes = expr_df.index.intersection(probe_to_gene.index)
+                log.info(f"Probes mapped via accession: {len(common_probes)} / {len(expr_df)}")
+                mapped_df = expr_df.loc[common_probes].copy()
+                mapped_df["gene"] = probe_to_gene[common_probes].values
+                mapped_df = mapped_df[mapped_df["gene"].notna()]
+                gene_expr = mapped_df.groupby("gene").mean()
+                log.info(f"Gene-level expression matrix: {gene_expr.shape[0]} genes x {gene_expr.shape[1]} samples")
+                return gene_expr
+
         log.error(f"No gene symbol column found in: {annot.columns.tolist()}")
         log.info("Returning expression matrix with probe IDs as-is")
         return expr_df
