@@ -21,6 +21,8 @@ Stages:
     6: Module preservation (Zsummary cross-dataset validation)
     7: Cell type deconvolution (MCPcounter-style marker scoring)
     8: PPI network analysis (STRING DB)
+    9: Drug repurposing via CMap/LINCS L1000 signatures
+   10: Family-discordant framework + medication dose-response
 """
 import argparse
 import sys
@@ -43,8 +45,8 @@ def main():
         epilog=__doc__,
     )
     parser.add_argument(
-        "--stages", default="1,2,3,4,5,6,7,8",
-        help="Comma-separated stage numbers to run (default: 1,2,3,4,5,6,7,8)",
+        "--stages", default="1,2,3,4,5,6,7,8,9,10",
+        help="Comma-separated stage numbers to run (default: 1,2,3,4,5,6,7,8,9,10)",
     )
     parser.add_argument(
         "--datasets", default="GSE38484,GSE27383,GSE21138",
@@ -144,6 +146,20 @@ def main():
         from pipeline import stage8_ppi
         stage8_ppi.run(dataset_ids)
         log.info("Stage 8 complete.\n")
+
+    # Stage 9: Drug repurposing
+    if 9 in stages:
+        log.info("\n>>> STAGE 9: Drug repurposing (CMap/LINCS) <<<")
+        from pipeline import stage9_drug_repurposing
+        stage9_drug_repurposing.run(dataset_ids)
+        log.info("Stage 9 complete.\n")
+
+    # Stage 10: Family analysis + medication dose-response
+    if 10 in stages:
+        log.info("\n>>> STAGE 10: Family & medication analysis <<<")
+        from pipeline import stage10_family_medication
+        stage10_family_medication.run(dataset_ids)
+        log.info("Stage 10 complete.\n")
 
     elapsed = time.time() - t_start
     log.info("=" * 60)

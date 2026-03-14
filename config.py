@@ -33,8 +33,8 @@ DATASETS = {
     "GSE21138": {
         "geo_id": "GSE21138",
         "platform": "GPL570",
-        "tissue": "blood",
-        "description": "Blood gene expression in schizophrenia (Affymetrix, 30 SCZ / 29 ctrl)",
+        "tissue": "prefrontal_cortex",
+        "description": "Post-mortem prefrontal cortex BA46 (30 SCZ / 29 ctrl, medicated)",
         "sample_size_approx": 59,
         "stat_test": "ttest",
     },
