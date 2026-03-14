@@ -30,6 +30,14 @@ DATASETS = {
         "sample_size_approx": 72,
         "stat_test": "ttest",
     },
+    "GSE21138": {
+        "geo_id": "GSE21138",
+        "platform": "GPL570",
+        "tissue": "blood",
+        "description": "Blood gene expression in schizophrenia (Affymetrix, 30 SCZ / 29 ctrl)",
+        "sample_size_approx": 59,
+        "stat_test": "ttest",
+    },
 }
 
 # --- Differential Expression ---

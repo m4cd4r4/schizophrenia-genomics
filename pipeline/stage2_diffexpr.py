@@ -4,6 +4,7 @@ Stage 2: Differential expression analysis.
 Compares gene expression between SCZ and control groups using appropriate
 statistical tests for microarray data (already log2-normalized).
 """
+import re
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -197,12 +198,63 @@ def meta_analysis(de_results: dict[str, pd.DataFrame]) -> pd.DataFrame:
     return meta_df
 
 
+def check_medication_confounding(pheno_df: pd.DataFrame, dataset_id: str) -> dict:
+    """
+    Check for medication metadata and warn if confounding is likely.
+
+    Looks for antipsychotic drug names and medication status fields.
+    Returns a dict with confounding_risk ('low'/'moderate'/'high') and notes.
+    """
+    antipsychotics = re.compile(
+        r"olanzapin|clozapin|risperidon|haloperidol|quetiapine|aripiprazol"
+        r"|ziprasidon|chlorpromazin|fluphenazin|perphenazin|antipsychot"
+        r"|medicate|treatment|drug.naive|drug-naive",
+        re.IGNORECASE,
+    )
+    drug_naive = re.compile(r"drug.naive|drug-naive|unmedicated|naive", re.IGNORECASE)
+
+    str_cols = pheno_df.select_dtypes(include="object").columns
+    full_text = " ".join(
+        pheno_df[str_cols].fillna("").astype(str).values.flatten()
+    )
+
+    n_drug_naive = sum(
+        bool(drug_naive.search(" ".join(str(v) for v in row if isinstance(v, str))))
+        for _, row in pheno_df[str_cols].iterrows()
+    )
+    has_antipsychotic_mention = bool(antipsychotics.search(full_text))
+    has_drug_naive_mention = bool(drug_naive.search(full_text))
+
+    scz_count = (pheno_df["group"] == "SCZ").sum()
+
+    if has_drug_naive_mention:
+        risk = "low"
+        note = f"{dataset_id}: Drug-naive status detected in metadata."
+    elif has_antipsychotic_mention:
+        risk = "high"
+        note = (
+            f"{dataset_id}: Antipsychotic medication mentioned in metadata. "
+            "DE results may reflect drug effects rather than disease."
+        )
+    else:
+        risk = "moderate"
+        note = (
+            f"{dataset_id}: No medication metadata found. "
+            f"Assume {scz_count} SCZ patients may be medicated (typical in clinical studies)."
+        )
+
+    log.warning(f"CONFOUNDING CHECK [{risk.upper()}]: {note}")
+    return {"dataset": dataset_id, "confounding_risk": risk, "note": note}
+
+
 def run(dataset_ids: list[str] | None = None) -> dict[str, pd.DataFrame]:
     """Run Stage 2 for specified datasets."""
     if dataset_ids is None:
         dataset_ids = list(config.DATASETS.keys())
 
     de_results = {}
+    confounding_reports = []
+
     for ds_id in dataset_ids:
         ds_config = config.DATASETS[ds_id]
         log.info(f"\n{'='*60}\nStage 2: {ds_id}\n{'='*60}")
@@ -210,6 +262,10 @@ def run(dataset_ids: list[str] | None = None) -> dict[str, pd.DataFrame]:
         # Load processed data from Stage 1
         expr_df = load_df(config.DATA_PROCESSED / f"{ds_id}_expression.csv")
         pheno_df = load_df(config.DATA_PROCESSED / f"{ds_id}_phenotype.csv")
+
+        # Medication confounding check
+        conf = check_medication_confounding(pheno_df, ds_id)
+        confounding_reports.append(conf)
 
         # Run differential expression
         method = ds_config.get("stat_test", "ttest")
@@ -223,6 +279,12 @@ def run(dataset_ids: list[str] | None = None) -> dict[str, pd.DataFrame]:
         volcano_plot(de_df, ds_id)
 
         de_results[ds_id] = de_df
+
+    # Save confounding report
+    if confounding_reports:
+        conf_df = pd.DataFrame(confounding_reports)
+        save_df(conf_df, config.RESULTS_DIR / "confounding_report.csv",
+                "Medication confounding report")
 
     # Meta-analysis across datasets
     meta_df = meta_analysis(de_results)

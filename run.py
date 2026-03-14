@@ -6,17 +6,21 @@ modules, and pathways associated with schizophrenia. Cross-references
 findings with known risk loci from PGC3 GWAS and family linkage studies.
 
 Usage:
-    python run.py                         # Run all stages
-    python run.py --stages 1,2            # Run specific stages
+    python run.py                            # Run all stages
+    python run.py --stages 1,2              # Run specific stages
     python run.py --stages 3 --datasets GSE38484  # Single dataset
-    python run.py --stages 2,3,4,5        # Skip download (use cached)
+    python run.py --stages 2,3,4,5          # Skip download (use cached)
+    python run.py --stages 6,7,8            # New analysis stages only
 
 Stages:
     1: Download GEO datasets + probe-to-gene mapping
-    2: Differential expression analysis (SCZ vs control)
+    2: Differential expression analysis (SCZ vs control) + confounding check
     3: WGCNA-style co-expression network analysis
     4: Map to schizophrenia risk loci (PGC3 + family studies)
     5: Pathway enrichment analysis + summary dashboard
+    6: Module preservation (Zsummary cross-dataset validation)
+    7: Cell type deconvolution (MCPcounter-style marker scoring)
+    8: PPI network analysis (STRING DB)
 """
 import argparse
 import sys
@@ -39,12 +43,12 @@ def main():
         epilog=__doc__,
     )
     parser.add_argument(
-        "--stages", default="1,2,3,4,5",
-        help="Comma-separated stage numbers to run (default: 1,2,3,4,5)",
+        "--stages", default="1,2,3,4,5,6,7,8",
+        help="Comma-separated stage numbers to run (default: 1,2,3,4,5,6,7,8)",
     )
     parser.add_argument(
-        "--datasets", default="GSE38484,GSE27383",
-        help="Comma-separated GEO dataset IDs (default: GSE38484,GSE27383)",
+        "--datasets", default="GSE38484,GSE27383,GSE21138",
+        help="Comma-separated GEO dataset IDs (default: GSE38484,GSE27383,GSE21138)",
     )
     parser.add_argument(
         "--primary", default="GSE38484",
@@ -81,7 +85,7 @@ def main():
         stage1_download.run(dataset_ids)
         log.info("Stage 1 complete.\n")
 
-    # Stage 2: Differential expression
+    # Stage 2: Differential expression + medication confounding check
     if 2 in stages:
         log.info("\n>>> STAGE 2: Differential expression analysis <<<")
         from pipeline import stage2_diffexpr
@@ -118,6 +122,28 @@ def main():
         from pipeline import stage5_pathways
         stage5_pathways.run(dataset_ids)
         log.info("Stage 5 complete.\n")
+
+    # Stage 6: Module preservation
+    if 6 in stages:
+        log.info("\n>>> STAGE 6: Module preservation analysis <<<")
+        from pipeline import stage6_module_preservation
+        test_ids = [ds for ds in dataset_ids if ds != primary_ds]
+        stage6_module_preservation.run(ref_id=primary_ds, test_ids=test_ids)
+        log.info("Stage 6 complete.\n")
+
+    # Stage 7: Cell type deconvolution
+    if 7 in stages:
+        log.info("\n>>> STAGE 7: Cell type deconvolution <<<")
+        from pipeline import stage7_deconvolution
+        stage7_deconvolution.run(dataset_ids)
+        log.info("Stage 7 complete.\n")
+
+    # Stage 8: PPI network analysis
+    if 8 in stages:
+        log.info("\n>>> STAGE 8: PPI network analysis <<<")
+        from pipeline import stage8_ppi
+        stage8_ppi.run(dataset_ids)
+        log.info("Stage 8 complete.\n")
 
     elapsed = time.time() - t_start
     log.info("=" * 60)
