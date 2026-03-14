@@ -1,0 +1,43 @@
+gene,source,researcher,notes
+CHRNA7,linkage,Robert Freedman,Alpha-7 nicotinic acetylcholine receptor; 15q13-14; LOD=5.3 for P50 deficit
+SHANK2,WGS,Lynn DeLisi / Amgen,Synaptic scaffolding; private missense variant in multiplex family (Homann 2016)
+DISC1,translocation,Edinburgh family,Disrupted in schizophrenia 1; 1q42; balanced translocation in Scottish family
+NRG1,linkage,Stefansson 2002,Neuregulin 1; 8p12; Icelandic family studies
+DTNBP1,linkage,Straub 2002,Dystrobrevin binding protein 1 (dysbindin); 6p22.3; Irish family study
+COMT,candidate,multiple,Catechol-O-methyltransferase; 22q11.21; Val158Met polymorphism; dopamine metabolism
+AKT1,candidate,Emamian 2004,AKT serine/threonine kinase 1; 14q32.33; dopamine signaling
+DAOA,linkage,Chumakov 2002,D-amino acid oxidase activator; 13q33.2; glutamate modulation
+DAO,candidate,Chumakov 2002,D-amino acid oxidase; 12q24.11; NMDA receptor co-agonist metabolism
+RGS4,linkage,Chowdari 2002,Regulator of G protein signaling 4; 1q23.3; Pittsburgh family study
+PPP3CC,candidate,Gerber 2003,Protein phosphatase 3 catalytic subunit gamma; calcineurin signaling
+GRM3,candidate/PGC3,multiple,Glutamate metabotropic receptor 3; also in PGC3
+PRODH,candidate,Liu 2002,Proline dehydrogenase 1; 22q11.21; 22q11 deletion syndrome
+DGCR2,candidate,22q11 studies,DiGeorge syndrome critical region gene 2; 22q11 deletion
+TBX1,candidate,22q11 studies,T-box transcription factor 1; 22q11 deletion
+ERBB4,linkage,Norton 2006,Erb-B2 receptor tyrosine kinase 4; NRG1 receptor
+PIK3C3,candidate,multiple,Phosphatidylinositol 3-kinase catalytic subunit type 3
+MTHFR,candidate,multiple,Methylenetetrahydrofolate reductase; folate metabolism
+SLC6A4,candidate,multiple,Serotonin transporter (5-HTT); 17q11.2
+HTR2A,candidate,multiple,5-HT2A serotonin receptor; 13q14.2; atypical antipsychotic target
+DRD3,candidate,multiple,Dopamine receptor D3; 3q13.31
+DRD4,candidate,multiple,Dopamine receptor D4; 11p15.5
+SLC6A3,candidate,multiple,Dopamine transporter (DAT1); 5p15.33
+GAD1,candidate,multiple,Glutamate decarboxylase 1; GABA synthesis
+RELN,candidate,Impagnatiello 1998,Reelin; 7q22.1; reduced in postmortem SCZ brains
+BDNF,candidate,multiple,Brain-derived neurotrophic factor; 11p14.1
+NTRK2,candidate,multiple,Neurotrophic receptor tyrosine kinase 2; BDNF receptor
+FKBP5,candidate,multiple,FKBP prolyl isomerase 5; stress response; HPA axis
+NR3C1,candidate,multiple,Glucocorticoid receptor; stress response
+IL6,candidate,multiple,Interleukin 6; neuroinflammation marker in blood
+TNF,candidate,multiple,Tumor necrosis factor; neuroinflammation
+IL1B,candidate,multiple,Interleukin 1 beta; elevated in SCZ blood
+CRP,biomarker,multiple,C-reactive protein; inflammatory marker elevated in SCZ
+TGFB1,candidate,multiple,Transforming growth factor beta 1; immune regulation
+IFNG,candidate,multiple,Interferon gamma; T-cell mediated inflammation
+MBP,candidate,Davis 2003,Myelin basic protein; myelination deficit hypothesis
+CNP,candidate,multiple,2'3'-cyclic nucleotide 3' phosphodiesterase; oligodendrocyte marker
+MAG,candidate,multiple,Myelin associated glycoprotein
+SOD2,candidate,multiple,Superoxide dismutase 2; mitochondrial oxidative stress
+GSTT1,candidate,multiple,Glutathione S-transferase theta 1; oxidative stress defense
+GPX1,candidate,multiple,Glutathione peroxidase 1; antioxidant defense
+SMARCA1,WGS,DeLisi / Amgen,SWI/SNF related chromatin remodeling; found in multiplex families (Homann 2016)

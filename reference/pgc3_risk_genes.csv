@@ -1,0 +1,120 @@
+gene,locus,source,notes
+SETD1A,1p36.11,PGC3,Histone methyltransferase; rare LoF variants
+PLCL1,2q33.1,PGC3,Phospholipase C-like 1
+SP4,7p15.3,PGC3,Transcription factor; zinc finger
+DPYD,1p21.3,PGC3,Dihydropyrimidine dehydrogenase
+GRIA1,5q33.2,PGC3,Glutamate ionotropic receptor AMPA type subunit 1
+GRM3,7q21.11,PGC3,Glutamate metabotropic receptor 3
+GRIN2A,16p13.2,PGC3,Glutamate ionotropic receptor NMDA type subunit 2A
+SLC38A1,12q13.11,PGC3,Solute carrier (glutamine transport)
+CLCN3,4q33,PGC3,Chloride voltage-gated channel 3
+CACNA1C,12p13.33,PGC3,Calcium voltage-gated channel subunit alpha1 C
+CACNB2,10p12.33,PGC3,Calcium voltage-gated channel auxiliary subunit beta 2
+CACNA1I,22q13.1,PGC3,Calcium voltage-gated channel subunit alpha1 I
+HCN1,5p12,PGC3,Hyperpolarization activated cyclic nucleotide gated K+ channel 1
+KCNB1,20q13.13,PGC3,Potassium voltage-gated channel subfamily B member 1
+SCN8A,12q13.13,PGC3,Sodium voltage-gated channel alpha subunit 8
+DRD2,11q23.2,PGC3,Dopamine receptor D2 (antipsychotic target)
+SLC6A1,3p25.3,PGC3,GABA transporter
+GABRA2,4p12,PGC3,GABA-A receptor alpha 2
+IGSF9B,11q25,PGC3,Immunoglobulin superfamily member 9B
+NRGN,11q24.2,PGC3,Neurogranin; calmodulin binding
+SNAP91,6q14.2,PGC3,Synaptosomal-associated protein 91
+SYN2,3p25.2,PGC3,Synapsin II
+RIMS1,6q13,PGC3,Regulating synaptic membrane exocytosis 1
+SYNGAP1,6p21.32,PGC3,Synaptic Ras GTPase activating protein 1
+FUT9,6q16.1,PGC3,Fucosyltransferase 9
+TCF4,18q21.2,PGC3,Transcription factor 4; Pitt-Hopkins
+ZNF804A,2q32.1,PGC3,Zinc finger protein 804A
+MIR137,1p21.3,PGC3,MicroRNA 137; regulates neuronal development
+FOXP1,3p13,PGC3,Forkhead box P1
+TLE1,9q21.31,PGC3,TLE family member 1; Groucho corepressor
+TLE3,15q24.1,PGC3,TLE family member 3
+MEF2C,5q14.3,PGC3,Myocyte enhancer factor 2C
+SATB2,2q33.1,PGC3,SATB homeobox 2
+CUL1,7q36.1,PGC3,Cullin 1; ubiquitin ligase
+HERC1,15q22.31,PGC3,HECT and RLD domain containing E3 ubiquitin protein ligase
+PJA1,Xq13.1,PGC3,Praja ring finger ubiquitin ligase 1
+TRIM8,10q24.3,PGC3,Tripartite motif containing 8
+SRPK2,7q22.3,PGC3,SRSF protein kinase 2; RNA splicing
+SRSF1,17q22,PGC3,Serine and arginine rich splicing factor 1
+CLK3,15q24.3,PGC3,CDC-like kinase 3; RNA splicing
+FTCD,21q22.3,PGC3,Formimidoyltransferase cyclodeaminase
+PPP1R13B,14q32.33,PGC3,Protein phosphatase 1 regulatory subunit 13B
+AKT3,1q44,PGC3,AKT serine/threonine kinase 3
+MAPK3,16p11.2,PGC3,Mitogen-activated protein kinase 3
+PDE4B,1p31.3,PGC3,Phosphodiesterase 4B
+PLCH2,1p36.32,PGC3,Phospholipase C eta 2
+FES,15q26.1,PGC3,FES proto-oncogene; tyrosine kinase
+PTN,7q33,PGC3,Pleiotrophin; neurite outgrowth
+CNKSR2,Xp22.12,PGC3,Connector enhancer of KSR 2
+STAG1,3q22.3,PGC3,Stromal antigen 1; cohesin complex
+EP300,22q13.2,PGC3,E1A binding protein p300; histone acetyltransferase
+KDM3B,5q31.2,PGC3,Lysine demethylase 3B
+INO80,15q15.1,PGC3,INO80 complex ATPase subunit
+BCL11B,14q32.2,PGC3,BAF chromatin remodeling complex subunit
+PBRM1,3p21.1,PGC3,Polybromo 1; SWI/SNF complex
+SMARCC1,3p21.31,PGC3,SWI/SNF related matrix associated actin dependent regulator of chromatin
+ACE,17q23.3,PGC3,Angiotensin I converting enzyme
+ALDH2,12q24.12,PGC3,Aldehyde dehydrogenase 2
+CYP26B1,2p13.2,PGC3,Cytochrome P450 family 26
+ABCB1,7q21.12,PGC3,ATP binding cassette subfamily B member 1
+VRK2,2p16.1,PGC3,Vaccinia related kinase 2
+FURIN,15q26.1,PGC3,Furin; paired basic amino acid cleaving enzyme
+C4A,6p21.33,PGC3,Complement component 4A; synaptic pruning
+C4B,6p21.33,PGC3,Complement component 4B; synaptic pruning
+BTN3A2,6p22.2,PGC3,Butyrophilin subfamily 3 member A2
+HLA-DQA1,6p21.32,PGC3,MHC class II DQ alpha 1
+HLA-B,6p21.33,PGC3,MHC class I B
+HLA-C,6p21.33,PGC3,MHC class I C
+ZSCAN31,6p21.33,PGC3,Zinc finger and SCAN domain containing 31
+TRIM26,6p21.33,PGC3,Tripartite motif containing 26
+THBS1,15q14,PGC3,Thrombospondin 1; synaptogenesis
+DOC2A,16p11.2,PGC3,Double C2 domain alpha
+GNL3,3p21.1,PGC3,G protein nucleolar 3
+PPP2R3A,3q22.2,PGC3,Protein phosphatase 2 regulatory subunit B
+TRIO,5p15.2,PGC3,Trio Rho guanine nucleotide exchange factor
+KCNN3,1q21.3,PGC3,Potassium calcium-activated channel subfamily N member 3
+PTPRU,1p35.3,PGC3,Protein tyrosine phosphatase receptor type U
+GATM,15q21.1,PGC3,Glycine amidinotransferase
+PUS7,7p12.1,PGC3,Pseudouridine synthase 7
+STAB1,3p21.1,PGC3,Stabilin 1
+TMTC1,12p11.22,PGC3,Transmembrane O-mannosyltransferase targeting cadherins 1
+LRRIQ3,1p31.1,PGC3,Leucine rich repeats and IQ motif containing 3
+CENPM,22q13.2,PGC3,Centromere protein M
+CUL9,6p21.1,PGC3,Cullin 9
+SBNO1,12q24.31,PGC3,Strawberry notch homolog 1
+CKB,14q32.33,PGC3,Creatine kinase B
+MAD1L1,7p22.3,PGC3,Mitotic arrest deficient 1 like 1
+CPEB1,15q25.2,PGC3,Cytoplasmic polyadenylation element binding protein 1
+LRRC4B,19q13.33,PGC3,Leucine rich repeat containing 4B
+TRMT61A,14q32.33,PGC3,tRNA methyltransferase 61A
+HSPA1A,6p21.33,PGC3,Heat shock protein family A (Hsp70) member 1A
+ERCC4,16p13.12,PGC3,ERCC excision repair 4
+GIGYF2,2q37.1,PGC3,GRB10 interacting GYF protein 2
+AMBRA1,11p11.2,PGC3,Autophagy and beclin 1 regulator 1
+ATG13,11p11.2,PGC3,Autophagy related 13
+HARBI1,11p11.2,PGC3,Harbinger transposase derived 1
+CSMD1,8p23.2,PGC3,CUB and sushi multiple domains 1
+PLCB2,15q15.1,PGC3,Phospholipase C beta 2
+RB1CC1,8q11.23,PGC3,RB1 inducible coiled-coil 1
+DPYSL2,8p21.2,PGC3,Dihydropyrimidinase like 2; CRMP2
+NEGR1,1p31.1,PGC3,Neuronal growth regulator 1
+NCAN,19p13.11,PGC3,Neurocan; extracellular matrix
+IREB2,15q25.1,PGC3,Iron responsive element binding protein 2
+MAPT,17q21.31,PGC3,Microtubule associated protein tau
+KANSL1,17q21.31,PGC3,KAT8 regulatory NSL complex subunit 1
+NSF,17q21.31,PGC3,N-ethylmaleimide sensitive factor; vesicular fusion
+LRRC37A,17q21.31,PGC3,Leucine rich repeat containing 37A
+SREBF1,17p11.2,PGC3,Sterol regulatory element binding transcription factor 1
+TOM1L2,17p11.2,PGC3,Target of Myb1 like 2 membrane trafficking protein
+ATXN7,3p14.1,PGC3,Ataxin 7; SAGA complex
+CENPE,4q24,PGC3,Centromere protein E
+TMEM258,11q13.1,PGC3,Transmembrane protein 258
+FADS2,11q12.2,PGC3,Fatty acid desaturase 2
+MYRF,11q12.2,PGC3,Myelin regulatory factor
+FEN1,11q12.2,PGC3,Flap structure-specific endonuclease 1
+APOPT1,14q32.33,PGC3,Apoptogenic 1; mitochondrial
+NGEF,2q37.1,PGC3,Neuronal guanine nucleotide exchange factor
+FANCL,2p16.1,PGC3,FA complementation group L
+TSNARE1,8q24.3,PGC3,t-SNARE domain containing 1
