@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080808;
+  --foreground: #e0e0e0;
+  --card: #111111;
+  --card-highlight: #191919;
+  --border: #222222;
+  --border-accent: #333333;
+  --text-muted: #888888;
+  --text-dim: #555555;
+  --blue: #2980b9;
+  --blue-bright: #3498db;
+  --green: #27ae60;
+  --green-bright: #2ecc71;
+  --red: #c0392b;
+  --red-bright: #e74c3c;
+  --amber: #d4930d;
+  --amber-bright: #f39c12;
+  --purple: #8e44ad;
+  --purple-bright: #9b59b6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-highlight: var(--card-highlight);
+  --color-border: var(--border);
+  --color-border-accent: var(--border-accent);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-blue: var(--blue);
+  --color-blue-bright: var(--blue-bright);
+  --color-green: var(--green);
+  --color-green-bright: var(--green-bright);
+  --color-red: var(--red);
+  --color-red-bright: var(--red-bright);
+  --color-amber: var(--amber);
+  --color-amber-bright: var(--amber-bright);
+  --color-purple: var(--purple);
+  --color-purple-bright: var(--purple-bright);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 3px; }
+
+/* Data table */
+.data-table {
+  width: 100%;
+  font-size: 0.75rem;
+  font-family: var(--font-geist-mono), "Courier New", monospace;
+  border-collapse: collapse;
+}
+.data-table th {
+  text-align: left;
+  padding: 0.375rem 0.5rem;
+  border-bottom: 1px solid var(--border-accent);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+.data-table th:hover { color: var(--foreground); }
+.data-table td {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+  white-space: nowrap;
+}
+.data-table tr:hover td { background: var(--card-highlight); }
+
+/* Gene monospace */
+.gene-name {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue-bright);
+  text-transform: uppercase;
+}
+
+/* Evidence tier badges */
+.tier-replicated {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 3px;
+  background: rgba(39,174,96,0.15);
+  color: var(--green-bright);
+  border: 1px solid rgba(39,174,96,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tier-single {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 3px;
+  background: rgba(41,128,185,0.15);
+  color: var(--blue-bright);
+  border: 1px solid rgba(41,128,185,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tier-underpowered {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 3px;
+  background: rgba(212,147,13,0.15);
+  color: var(--amber-bright);
+  border: 1px solid rgba(212,147,13,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Markdown prose */
+.summary-prose h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--foreground); font-family: Georgia, serif; }
+.summary-prose h2 { font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--foreground); font-family: Georgia, serif; }
+.summary-prose h3 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.35rem; color: var(--foreground); }
+.summary-prose p { margin: 0.5rem 0; color: var(--text-muted); line-height: 1.7; font-size: 0.875rem; }
+.summary-prose strong { color: var(--foreground); font-weight: 600; }
+.summary-prose hr { border-color: var(--border); margin: 1.5rem 0; }
+.summary-prose ul, .summary-prose ol { margin: 0.5rem 0; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.875rem; }
+.summary-prose li { margin: 0.25rem 0; line-height: 1.6; }
+.summary-prose li::marker { color: var(--blue); }
+.summary-prose table { width: 100%; font-size: 0.75rem; font-family: var(--font-mono), monospace; border-collapse: collapse; margin: 0.75rem 0; }
+.summary-prose th { text-align: left; padding: 0.375rem 0.5rem; border-bottom: 1px solid var(--border); color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
+.summary-prose td { padding: 0.375rem 0.5rem; border-bottom: 1px solid var(--border); color: var(--foreground); }
+.summary-prose a { color: var(--blue); text-decoration: none; }
+.summary-prose a:hover { color: var(--blue-bright); }
+.summary-prose code { font-family: var(--font-mono), monospace; font-size: 0.8em; background: var(--card); padding: 0.1em 0.3em; border-radius: 3px; }
+.summary-prose pre { background: var(--card); padding: 0.75rem; border-radius: 4px; overflow-x: auto; border: 1px solid var(--border); }

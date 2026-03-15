@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data files (large, not for git)
+*.duckdb
+*.duckdb.wal
+chroma_store/
+chroma_db/
+
+# Dashboard
+dashboard/node_modules/
+dashboard/.next/
+dashboard/.env.local
+dashboard/.env
+
+# Logs
+*.log
