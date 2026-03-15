@@ -1,11 +1,10 @@
 """Serve pipeline figure PNGs."""
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
-from pathlib import Path
+
+from query.config import FIGURES_DIR
 
 router = APIRouter(prefix="/api/figures", tags=["figures"])
-
-FIGURES_DIR = Path("I:/Scratch/schizophrenia-genomics/figures")
 
 
 @router.get("")
