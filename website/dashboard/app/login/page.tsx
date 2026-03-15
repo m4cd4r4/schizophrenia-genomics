@@ -29,67 +29,62 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      background: "var(--background)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
-      <div style={{
-        background: "var(--card)",
-        border: "1px solid var(--border)",
-        borderRadius: 8,
-        padding: "2rem",
-        width: "100%",
-        maxWidth: 360,
-      }}>
-        <h1 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.25rem", color: "var(--foreground)" }}>
-          SCZ Genomics Dashboard
-        </h1>
-        <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
-          Research access only. Enter the site password to continue.
-        </p>
+    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: "100%", maxWidth: 380, padding: "0 1.25rem" }}>
+        {/* Branding */}
+        <div style={{ marginBottom: "2.5rem", textAlign: "center" }}>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 400, letterSpacing: "-0.015em", color: "var(--text)", marginBottom: "0.375rem" }}>
+            SCZ<span style={{ color: "var(--blue)", fontStyle: "italic" }}>Genomics</span>
+          </div>
+          <p style={{ fontSize: "0.8125rem", color: "var(--text-dim)", fontFamily: "var(--font-body)" }}>
+            Research access — enter site password to continue
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit}>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder="Password"
-            autoFocus
-            style={{
-              width: "100%",
-              padding: "0.5rem 0.75rem",
-              background: "var(--background)",
-              border: `1px solid ${error ? "var(--red)" : "var(--border)"}`,
-              borderRadius: 4,
-              color: "var(--foreground)",
-              fontSize: "0.875rem",
-              outline: "none",
-              fontFamily: "inherit",
-              boxSizing: "border-box",
-            }}
-          />
-
-          {error && (
-            <p style={{ fontSize: "0.72rem", color: "var(--red-bright)", margin: "0.4rem 0 0" }}>{error}</p>
-          )}
+          <div style={{ marginBottom: "0.75rem" }}>
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+              autoFocus
+              style={{
+                width: "100%",
+                padding: "0.625rem 0.875rem",
+                background: "var(--surface)",
+                border: `1px solid ${error ? "var(--red)" : "var(--border-strong)"}`,
+                borderRadius: 6,
+                color: "var(--text)",
+                fontSize: "0.9375rem",
+                outline: "none",
+                fontFamily: "var(--font-body)",
+                boxSizing: "border-box",
+                transition: "border-color 0.12s",
+              }}
+            />
+            {error && (
+              <p style={{ fontSize: "0.8rem", color: "var(--red-bright)", margin: "0.375rem 0 0", fontFamily: "var(--font-body)" }}>
+                {error}
+              </p>
+            )}
+          </div>
 
           <button
             type="submit"
             disabled={loading || !password}
             style={{
-              marginTop: "1rem",
               width: "100%",
-              padding: "0.5rem",
+              padding: "0.625rem",
               background: loading || !password ? "var(--border)" : "var(--blue)",
               border: "none",
-              borderRadius: 4,
-              color: "var(--foreground)",
-              fontSize: "0.875rem",
-              fontWeight: 600,
+              borderRadius: 6,
+              color: loading || !password ? "var(--text-dim)" : "white",
+              fontSize: "0.9rem",
+              fontWeight: 500,
               cursor: loading || !password ? "not-allowed" : "pointer",
+              fontFamily: "var(--font-body)",
+              transition: "background 0.12s",
             }}
           >
             {loading ? "Verifying..." : "Enter"}
