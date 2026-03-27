@@ -12,3 +12,4 @@ networkx>=3.2
 tqdm>=4.66.0
 adjustText>=0.8
 matplotlib-venn>=0.11.0
+requests>=2.31.0
