@@ -27,7 +27,6 @@ def phase1_ingest(fresh: bool = False) -> None:
     import os
     import duckdb
     from query.ingest.csv_ingest import ingest_all, verify_counts
-    from query.ingest.schema import SCHEMA_SQL
 
     schema_path = Path(__file__).parent / "ingest" / "schema.sql"
 

@@ -9,7 +9,7 @@ Each entry is a dict with:
   - skip: if True, this file is not ingested (raw/wide-format files)
 """
 
-DATASETS = ["GSE38484", "GSE27383", "GSE21138"]
+DATASETS = ["GSE38484", "GSE27383", "GSE21138", "GSE53987", "GSE12649"]
 
 # Build the full mapping
 CSV_TABLE_MAP: list[dict] = []

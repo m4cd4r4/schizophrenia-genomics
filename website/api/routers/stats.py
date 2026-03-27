@@ -38,7 +38,7 @@ def get_stats():
     """).fetchall()
 
     return {
-        "n_datasets": 3,
+        "n_datasets": con.execute("SELECT COUNT(DISTINCT dataset_id) FROM de_results").fetchone()[0],
         "n_genes_tested": n_genes_tested,
         "n_meta_sig_genes": n_meta_sig,
         "n_high_evidence_genes": n_high_ev,
