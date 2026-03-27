@@ -38,35 +38,28 @@ DATASETS = {
         "sample_size_approx": 59,
         "stat_test": "ttest",
     },
-}
-
-# --- Queued Datasets (not yet downloaded/processed) ---
-DATASETS_QUEUED = {
     "GSE53987": {
         "geo_id": "GSE53987",
         "platform": "GPL570",
         "tissue": "PFC_hippocampus_striatum",
-        "description": "Three brain regions (19 SCZ / 19 ctrl per region, also BD + MDD)",
+        "description": "Three brain regions: PFC + hippocampus + striatum (19 SCZ / 19 ctrl per region, also BD + MDD)",
         "sample_size_approx": 205,
-        "priority": 1,
+        "stat_test": "ttest",
     },
-    "GSE92538": {
-        "geo_id": "GSE92538",
-        "platform": "GPL570",
-        "tissue": "DLPFC",
-        "description": "Pritzker Consortium DLPFC (363 total, SCZ + BD + MDD + ctrl)",
-        "sample_size_approx": 363,
-        "priority": 1,
-    },
+    # GSE92538 excluded: custom Affymetrix Gene 1.0 ST platform (GPL10526/GPL17027)
+    # maps only 59/11973 probes to standard gene symbols. Needs custom annotation.
     "GSE12649": {
         "geo_id": "GSE12649",
         "platform": "GPL96",
         "tissue": "prefrontal_cortex",
         "description": "PFC BA46 mitochondrial dysfunction focus (34 SCZ / 34 ctrl / 34 BD)",
         "sample_size_approx": 102,
-        "priority": 1,
-        "notes": "Mitochondrial focus - relevant to ketogenic/metabolic hypothesis",
+        "stat_test": "ttest",
     },
+}
+
+# --- Queued Datasets (not yet downloaded/processed) ---
+DATASETS_QUEUED = {
     "GSE17612": {
         "geo_id": "GSE17612",
         "platform": "GPL570",
