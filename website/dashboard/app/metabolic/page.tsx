@@ -33,17 +33,18 @@ const CASE_REPORTS = [
 ];
 
 const MTHFR_CONTENT = {
-  title: "MTHFR Testing: The No-Brainer",
-  body: `The MTHFR C677T polymorphism is one of the most replicated genetic associations in schizophrenia. Homozygous TT carriers have ~36% higher SCZ risk (meta-analysis of 38 studies, OR=1.36). This polymorphism reduces methylenetetrahydrofolate reductase activity by up to 70%, impairing folate metabolism and elevating homocysteine - a neurotoxin linked to oxidative stress, NMDA receptor dysfunction, and epigenetic dysregulation.`,
+  title: "MTHFR and Folate: Low-Hanging Fruit",
+  body: `The MTHFR C677T polymorphism is one of the most replicated genetic associations in schizophrenia: TT homozygotes have 36-48% higher SCZ risk (Yadav 2016 meta-analysis, 38 studies, 10,069 cases). Each 5 umol/L increase in homocysteine raises SCZ risk by 70% (Muntjewerff 2006, Mendelian randomisation confirmed by Nishi 2014). The folate pathway affects DNA methylation, neurotransmitter synthesis, and NMDA receptor function.`,
   why: [
-    "MTHFR C677T TT genotype: 36% increased SCZ risk (meta-analysis, 38 studies)",
-    "Homocysteine elevated in 30-50% of SCZ patients vs controls",
-    "L-methylfolate (15mg) improved negative symptoms in MTHFR TT carriers (Roffman et al.)",
-    "Test costs ~$50-150; L-methylfolate is cheap, safe, and available OTC",
-    "Guides personalised folate supplementation vs empirical dosing",
-    "COMT Val158Met interacts with MTHFR - affects dopamine metabolism",
+    "MTHFR C677T TT: OR=1.40 (1.20-1.64) for SCZ (38 studies, 10,069 cases, PMID:27025471)",
+    "5 umol/L higher homocysteine = 70% higher SCZ risk (PMID:16172608)",
+    "L-methylfolate 15mg improved PANSS total (d=0.61, p=0.03) regardless of genotype (Roffman 2018, PMID:28289280)",
+    "Folate pathway variants (MTHFR + MTR + FOLH1 + COMT) predict negative symptom severity (Roffman 2013)",
+    "MRI changes confirmed: increased vmPFC deactivation, altered limbic connectivity, increased cortical thickness",
+    "Meta-analysis of 10 RCTs (925 patients): folate/methylfolate significantly improves negative symptoms (Sakuma 2018)",
   ],
-  action: "Every schizophrenia patient should be genotyped for MTHFR C677T and A1298C. TT homozygotes and CT heterozygotes benefit from L-methylfolate (not folic acid) supplementation at 7.5-15mg/day as adjunct therapy. This is pharmacogenomics at its simplest - a one-time $50 test that guides lifelong treatment.",
+  action: `L-methylfolate 15mg/day should be considered for all schizophrenia patients with persistent negative symptoms. It bypasses MTHFR entirely, so formal genotyping ($325+) is optional - the bioactive form works regardless of genotype (Roffman 2018). L-methylfolate costs ~$30/month and has no meaningful side effects. Use L-methylfolate, NOT folic acid (which requires MTHFR to convert). ACMG does not recommend routine MTHFR testing, but the clinical trial evidence for L-methylfolate supplementation is strong independently of genotype.`,
+  nuance: `Note: While MTHFR genotyping can identify high-risk individuals and guide dosing, the Roffman 2018 RCT showed L-methylfolate improved negative symptoms regardless of genotype when given at 15mg. The cost-effective approach is empirical supplementation with the bioactive form rather than test-then-treat. However, testing remains informative for understanding individual folate metabolism and homocysteine management.`,
 };
 
 type Tab = "trials" | "mechanisms" | "cases" | "mthfr";
@@ -195,19 +196,39 @@ export default function MetabolicPage() {
               </div>
             ))}
           </div>
-          <div style={{ border: "1px solid var(--border)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)" }}>
+          <div style={{ border: "1px solid var(--border)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)", marginBottom: "1rem" }}>
             <div style={{ fontSize: "0.6875rem", color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.625rem" }}>
               Combination Therapy Evidence
             </div>
             <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", lineHeight: 1.65, margin: 0 }}>
-              <strong style={{ color: "var(--text)" }}>KD + Olanzapine (Kraeuter 2019):</strong> In animal models, KD was as effective as olanzapine at normalising PPI. Combination showed equivalent benefit,
-              supporting use alongside antipsychotics. KD also protected against olanzapine-induced hyperglycaemia in mice (J Physiol, 2022).
+              <strong style={{ color: "var(--text)" }}>KD + Olanzapine (Kraeuter 2019, PMID:31405622):</strong> In female mice, KD was as effective as olanzapine at normalising MK-801-induced PPI disruption.
+              Combination produced similar effect to either alone - no antagonistic interaction. Supports safe co-administration.
               <br /><br />
-              <strong style={{ color: "var(--text)" }}>BHB alone (Kraeuter 2020):</strong> Chronic beta-hydroxybutyrate administration alone (without full KD) normalised
-              MK-801-induced hyperlocomotion and disrupted PPI, suggesting the ketone body itself is the active therapeutic agent.
+              <strong style={{ color: "var(--text)" }}>KD protects against antipsychotic metabolic harm (Shamshoum 2022, PMID:35507699):</strong> Short-term KD protected against olanzapine-induced hyperglycaemia in mice,
+              independent of whole-body insulin action. Notably, exogenous BHB or ketone esters did NOT replicate this, meaning the mechanism goes beyond circulating ketones.
               <br /><br />
-              <strong style={{ color: "var(--text)" }}>Delphi Consensus 2026:</strong> 33/33 expert consensus statements reached on implementing ketogenic metabolic therapy
-              for serious mental illness (Palmer, Sethi, Ede, Zupec-Kania et al., Front Nutr, PMID:41816235).
+              <strong style={{ color: "var(--text)" }}>BHB alone (Kraeuter 2020, PMID:31993694):</strong> Chronic beta-hydroxybutyrate alone (no full KD) normalised hyperlocomotion and PPI disruption,
+              suggesting the ketone body itself has direct therapeutic action.
+              <br /><br />
+              <strong style={{ color: "var(--text)" }}>Stanford pilot - all on antipsychotics (Sethi 2024):</strong> All 23 participants continued their medications.
+              KD reversed metabolic syndrome in 100% while maintaining psychiatric improvement. 48% of antipsychotic-treated patients lost 5%+ body weight.
+              <br /><br />
+              <strong style={{ color: "var(--text)" }}>Delphi Consensus 2026 (PMID:41816235):</strong> 33/33 expert consensus statements on implementing KMT for serious mental illness,
+              explicitly endorsing KD as adjunct to standard pharmacotherapy.
+            </p>
+          </div>
+          <div style={{ border: "1px solid var(--purple)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)" }}>
+            <div style={{ fontSize: "0.6875rem", color: "var(--purple)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.625rem" }}>
+              Optimal combination protocol (emerging consensus)
+            </div>
+            <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", lineHeight: 1.65, margin: 0 }}>
+              <strong style={{ color: "var(--text)" }}>Tier 1 (strong evidence):</strong> Continue antipsychotics + add ketogenic diet (reverses metabolic side effects while maintaining/improving psychiatric outcomes)
+              <br />
+              <strong style={{ color: "var(--text)" }}>Tier 2 (moderate evidence):</strong> Add L-methylfolate 15mg/day for persistent negative symptoms (Roffman 2018, d=0.61)
+              <br />
+              <strong style={{ color: "var(--text)" }}>Tier 3 (preclinical/emerging):</strong> Consider COBENFY (muscarinic agonist, FDA approved Sep 2024) which has cognitive benefits and less metabolic burden than D2-blockers
+              <br />
+              <strong style={{ color: "var(--text)" }}>Research gap:</strong> No published trials combining KD with CBTp, exercise, or specific supplements. These represent opportunities.
             </p>
           </div>
         </div>
@@ -228,12 +249,20 @@ export default function MetabolicPage() {
               ))}
             </ul>
           </div>
-          <div style={{ border: "1px solid var(--green)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)" }}>
+          <div style={{ border: "1px solid var(--green)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)", marginBottom: "1.25rem" }}>
             <div style={{ fontSize: "0.6875rem", color: "var(--green)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem", fontFamily: "var(--font-body)", fontWeight: 500 }}>
               Clinical Recommendation
             </div>
             <p style={{ fontSize: "0.875rem", color: "var(--text)", lineHeight: 1.7, margin: 0 }}>
               {MTHFR_CONTENT.action}
+            </p>
+          </div>
+          <div style={{ border: "1px solid var(--border)", borderRadius: 8, padding: "1.25rem", background: "var(--surface)" }}>
+            <div style={{ fontSize: "0.6875rem", color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Testing vs Empirical Supplementation
+            </div>
+            <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", lineHeight: 1.7, margin: 0 }}>
+              {MTHFR_CONTENT.nuance}
             </p>
           </div>
         </div>
