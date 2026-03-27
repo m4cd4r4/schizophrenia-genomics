@@ -20,8 +20,8 @@ app = FastAPI(
 ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://dashboard-indol-one-28.vercel.app",
-    "https://dashboard-m4cd4r4s-projects.vercel.app",
+    "https://schizophrenia-genomics.vercel.app",
+    "https://schizophrenia-genomics-m4cd4r4s-projects.vercel.app",
     "https://donnacha.app",
 ]
 
