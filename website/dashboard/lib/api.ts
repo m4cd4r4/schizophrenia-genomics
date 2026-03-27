@@ -1,4 +1,4 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8001";
+const BASE = typeof window !== "undefined" ? "/backend" : (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8001");
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(`${BASE}${path}`, { cache: "no-store" });
