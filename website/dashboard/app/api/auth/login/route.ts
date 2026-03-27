@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SITE_PASSWORD = process.env.SITE_PASSWORD ?? "scz2024research";
+const SITE_PASSWORD = (process.env.SITE_PASSWORD ?? "scz2026").trim();
 const COOKIE_NAME = "scz_auth";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
