@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "website"))
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routers import stats, datasets, genes, drugs, pathways, figures, query
+from api.routers import stats, datasets, genes, drugs, pathways, figures, query, metabolic
 
 app = FastAPI(
     title="Schizophrenia Genomics API",
@@ -40,6 +40,7 @@ app.include_router(drugs.router)
 app.include_router(pathways.router)
 app.include_router(figures.router)
 app.include_router(query.router)
+app.include_router(metabolic.router)
 
 
 @app.get("/api/health")

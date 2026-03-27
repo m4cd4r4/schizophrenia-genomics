@@ -10,6 +10,7 @@ const NAV = [
   { href: "/modules", label: "Modules" },
   { href: "/pathways", label: "Pathways" },
   { href: "/drugs", label: "Drugs" },
+  { href: "/metabolic", label: "Metabolic" },
   { href: "/query", label: "Query" },
 ];
 

@@ -1,0 +1,14 @@
+geo_id,tissue,n_scz,n_ctrl,n_total,platform,platform_id,tier,description,compatible_with_pipeline,notes
+GSE53987,PFC + Hippocampus + Striatum,19,19,205,Affymetrix HG-U133+2,GPL570,1,Three brain regions; widely used in meta-analyses,Yes - same platform as GSE27383/GSE21138,Also includes BD and MDD
+GSE92538,DLPFC,,,363,Affymetrix HG-U133+2 / HG-U133A,GPL570,1,Pritzker Consortium; largest single microarray brain dataset,Yes,Multi-site; includes BD and MDD
+GSE12649,PFC BA46,34,34,102,Affymetrix HG-U133A,GPL96,1,Mitochondrial dysfunction focus - relevant to ketogenic hypothesis,Yes with minor probe mapping,Also includes BD
+GSE17612,PFC BA10,28,23,51,Affymetrix HG-U133+2,GPL570,1,Anterior PFC; same platform as GSE21138,Yes,Different PFC subregion
+GSE35978,Cerebellum + Parietal cortex,,,312,Affymetrix Human Gene 1.0 ST,GPL6244,1,Stanley Medical Research Institute collections; two brain regions,Yes with probe mapping,SuperSeries
+GSE80655,AnCg + nAcc + DLPFC,24,24,281,Illumina HiSeq 2000,RNA-seq,2,RNA-seq of three brain regions; three psychiatric disorders,Requires RNA-seq pipeline addition,Also BD and MDD
+GSE80974,Whole blood,48,49,192,Illumina HiSeq 2000,RNA-seq,2,Blood RNA-seq; found increased microbial diversity in SCZ,Requires RNA-seq pipeline addition,Also BD and ALS
+GSE165604,Lymphocytes,19,18,37,Illumina HiSeq 2500,RNA-seq,2,Inflammatory marker concordance between lymphocytes and PFC,Requires RNA-seq pipeline addition,Blood-brain comparison
+CMC,DLPFC BA9/46,353,,986,RNA-seq,Synapse,3,CommonMind Consortium - largest post-mortem brain RNA-seq,Requires registration + RNA-seq pipeline,syn2759792
+BrainSeq2,DLPFC + Hippocampus,286,,551,RiboZero RNA-seq,Synapse/dbGaP,3,BrainSeq Phase 2; 48 DEGs hippocampus + 245 DEGs DLPFC,Requires application,Regional heterogeneity
+PsychENCODE2,PFC single-cell,,,468727 nuclei,snRNA-seq,Synapse,3,468K nuclei from 140 individuals; excitatory neurons most affected,Single-cell analysis required,syn25922167
+GSE174704,iPSC neurons (MZ twins),5,5,10,Illumina NextSeq 500,RNA-seq,novel,Monozygotic twins discordant for SCZ; synaptic gene dysregulation,Requires RNA-seq,Family data for Stage 10
+GSE106589,hiPSC NPCs + neurons,,,94,Illumina HiSeq 2500,RNA-seq,novel,Signatures concordant with post-mortem adult brains,Requires RNA-seq,iPSC validation

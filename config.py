@@ -40,6 +40,51 @@ DATASETS = {
     },
 }
 
+# --- Queued Datasets (not yet downloaded/processed) ---
+DATASETS_QUEUED = {
+    "GSE53987": {
+        "geo_id": "GSE53987",
+        "platform": "GPL570",
+        "tissue": "PFC_hippocampus_striatum",
+        "description": "Three brain regions (19 SCZ / 19 ctrl per region, also BD + MDD)",
+        "sample_size_approx": 205,
+        "priority": 1,
+    },
+    "GSE92538": {
+        "geo_id": "GSE92538",
+        "platform": "GPL570",
+        "tissue": "DLPFC",
+        "description": "Pritzker Consortium DLPFC (363 total, SCZ + BD + MDD + ctrl)",
+        "sample_size_approx": 363,
+        "priority": 1,
+    },
+    "GSE12649": {
+        "geo_id": "GSE12649",
+        "platform": "GPL96",
+        "tissue": "prefrontal_cortex",
+        "description": "PFC BA46 mitochondrial dysfunction focus (34 SCZ / 34 ctrl / 34 BD)",
+        "sample_size_approx": 102,
+        "priority": 1,
+        "notes": "Mitochondrial focus - relevant to ketogenic/metabolic hypothesis",
+    },
+    "GSE17612": {
+        "geo_id": "GSE17612",
+        "platform": "GPL570",
+        "tissue": "prefrontal_cortex",
+        "description": "Anterior PFC BA10 (28 SCZ / 23 ctrl)",
+        "sample_size_approx": 51,
+        "priority": 2,
+    },
+    "GSE35978": {
+        "geo_id": "GSE35978",
+        "platform": "GPL6244",
+        "tissue": "cerebellum_parietal",
+        "description": "SMRI collections: cerebellum + parietal cortex (312 total)",
+        "sample_size_approx": 312,
+        "priority": 2,
+    },
+}
+
 # --- Differential Expression ---
 DE_PVALUE_THRESHOLD = 0.05
 DE_LOGFC_THRESHOLD = 0.5
@@ -81,6 +126,17 @@ SCZ_PATHWAY_KEYWORDS = [
     "complement",
     "myelin",
     "axon guid",
+    "mitochond",
+    "ketone",
+    "fatty acid oxid",
+    "insulin",
+    "glucose metabol",
+    "HDAC",
+    "histone deacetyl",
+    "adenosine",
+    "folate",
+    "one carbon",
+    "methyl",
 ]
 
 # --- Plotting ---
