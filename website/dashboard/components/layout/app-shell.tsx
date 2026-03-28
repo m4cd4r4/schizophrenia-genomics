@@ -19,6 +19,20 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      {/* WIP banner */}
+      <div style={{
+        background: "rgba(245, 158, 11, 0.12)",
+        borderBottom: "1px solid rgba(245, 158, 11, 0.3)",
+        padding: "0.375rem 1.75rem",
+        textAlign: "center",
+        fontSize: "0.75rem",
+        color: "rgba(245, 158, 11, 0.9)",
+        letterSpacing: "0.01em",
+      }}>
+        Work in progress - findings are preliminary and not peer-reviewed.
+        Pipeline and analysis are actively being extended.
+      </div>
+
       <header style={{
         borderBottom: "1px solid var(--border)",
         background: "var(--bg)",
@@ -92,7 +106,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             letterSpacing: "0.02em",
             flexShrink: 0,
           }}>
-            3 datasets · 333K rows
+            5 datasets · 464K rows
           </div>
         </div>
       </header>
@@ -113,7 +127,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         textAlign: "center",
       }}>
         <span style={{ fontSize: "0.6875rem", color: "var(--text-dim)", fontFamily: "var(--font-body)" }}>
-          Schizophrenia Transcriptomics Pipeline · GSE38484 · GSE27383 · GSE21138 · 10-stage analysis
+          Schizophrenia Transcriptomics Pipeline · GSE38484 · GSE27383 · GSE21138 · GSE53987 · GSE12649 · 10-stage analysis
         </span>
       </footer>
     </div>
