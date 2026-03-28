@@ -59,6 +59,8 @@ DATASETS = {
     "GSE38484": {"tissue": "whole_blood", "platform": "Illumina HT-12 V3 (GPL6947)", "n_scz": 106, "n_ctrl": 96},
     "GSE27383": {"tissue": "PBMC", "platform": "Affymetrix HG-U133+2 (GPL570)", "n_scz": 43, "n_ctrl": 29},
     "GSE21138": {"tissue": "prefrontal_cortex", "platform": "Affymetrix HG-U133+2 (GPL570)", "n_scz": 30, "n_ctrl": 29},
+    "GSE53987": {"tissue": "PFC_hippocampus_striatum", "platform": "Affymetrix HG-U133+2 (GPL570)", "n_scz": 48, "n_ctrl": 55},
+    "GSE12649": {"tissue": "prefrontal_cortex", "platform": "Affymetrix HG-U133A (GPL96)", "n_scz": 35, "n_ctrl": 34},
 }
 
 DATASET_KEYWORDS = {
@@ -68,4 +70,6 @@ DATASET_KEYWORDS = {
     "GSE27383": "GSE27383",
     "brain": "GSE21138", "cortex": "GSE21138", "prefrontal": "GSE21138",
     "post-mortem": "GSE21138", "GSE21138": "GSE21138",
+    "hippocampus": "GSE53987", "striatum": "GSE53987", "GSE53987": "GSE53987",
+    "mitochondria": "GSE12649", "GSE12649": "GSE12649",
 }
