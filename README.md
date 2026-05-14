@@ -408,16 +408,34 @@ cause: BindingDB-pKd's training set is dominated by kinase and protease
 ligand data; DRD2 (an aminergic GPCR) is under-represented, and the released
 fine-tune lacks resolution on this receptor class.
 
+### Route #1 follow-up — multi-target GPCR scout (also NO-GO)
+
+Same 6-drug panel applied to DRD3 (P35462), 5-HT2A (P28223), 5-HT1A (P08908)
+in addition to DRD2. All four targets failed:
+
+| Target | Margin | Verdict |
+|--------|--------|---------|
+| DRD2   | +0.05  | NO-GO   |
+| DRD3   | +0.03  | NO-GO   |
+| 5-HT2A | +0.02  | NO-GO   |
+| 5-HT1A | +0.04  | NO-GO   |
+
+Ibuprofen ranks above clozapine on three of four targets. The failure is
+**general across aminergic GPCRs**, not DRD2-specific. The released DTI head
+has learned target-level priors but no within-target drug discrimination.
+Full results: [`docs/STAGE11-ROUTE1-RESULTS.md`](docs/STAGE11-ROUTE1-RESULTS.md).
+
 ### What this rules in / out
 
+- ❌ **The released DTI-head approach is not viable** for zero-shot
+  psychiatric drug repurposing on aminergic GPCRs.
 - ❌ **The originally-scoped Stage 11 (drug × bulk gene expression scoring)
-  is not buildable from public artefacts.** MAMMAL's released checkpoints
-  cover DTI, scRNA cell-type classification, TCR-epitope binding, and single-
-  domain molecular property heads. The cancer-drug-response head used in the
-  paper's carfilzomib result was not released.
-- ✓ **A narrower experiment is still cheap to run:** repeat the scout on
-  other psychiatric targets (5-HT2A, 5-HT1A, DRD3, NMDA receptor subunits)
-  to test whether the failure is DRD2-specific or general to aminergic GPCRs.
+  is not buildable from public artefacts.** The cancer-drug-response head
+  used in the paper's carfilzomib result was not released.
+- ✓ **Not yet falsified:** MAMMAL embeddings + a thin classifier (route #2),
+  psychiatric-ligand fine-tune (route #3), generation-mode tasks like
+  novel-candidate design for SETD1A/TCF4 (route #4 — paper's strongest
+  published task), kinase/protease targets (different class than tested).
 
 ### Repro
 
