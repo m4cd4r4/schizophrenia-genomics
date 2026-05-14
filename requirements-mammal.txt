@@ -1,0 +1,12 @@
+# Stage 11 — MAMMAL cross-modal drug scoring.
+# Kept separate from requirements.txt because MAMMAL pulls torch + heavy deps
+# and is not needed for Stages 1-10.
+#
+# Install only when running Stage 11:
+#   pip install -r requirements-mammal.txt
+#
+# GPU strongly recommended (CPU inference is ~30x slower). Model is 458M params,
+# fits in ~2GB VRAM. Tested on RTX 30/40-series consumer cards.
+
+biomed-multi-alignment[examples]
+torch>=2.1.0
